@@ -2,19 +2,22 @@
 
 namespace controller\login;
 
+use lib\Auth;
+
 function get()
 {
     require_once SOURCE_BASE . 'views/login.php';
 }
 
-function login($id, $pwd)
-{
-}
+
 function post()
 {
-    //三項演算子
-    $id = isset($_POST['id']) ? $_POST['id'] : '';
-    //null型演算子 上と同じ意味
-    $pwd = $_POST['pwd'] ?? '';
-    $result = login($id, $pwd);
+    $id = get_param('id','');
+    $pwd = get_param('pwd', '');
+
+    if (Auth::login($id, $pwd)) {
+        echo '認証成功';
+    } else {
+        echo '認証失敗';
+    }
 }

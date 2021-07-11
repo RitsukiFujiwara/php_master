@@ -1,15 +1,15 @@
 <?php
 require_once 'config.php';
+//library
+require_once SOURCE_BASE . 'libs/helper.php';
+require_once SOURCE_BASE . 'libs/auth.php';
 //Model読み込み
 require_once SOURCE_BASE . 'models/user.model.php';
 //DB関連読み込み
 require_once SOURCE_BASE . 'db/datasource.php';
 require_once SOURCE_BASE . 'db/user.query.php';
 
-// use db\UserQuery;
-
-// $result = UserQuery::fetchById('test');
-// var_dump($result);
+session_start();
 
 require_once SOURCE_BASE . 'partials/header.php';
 
